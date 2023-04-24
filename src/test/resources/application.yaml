@@ -1,0 +1,44 @@
+spring.application.name: &domain test-domain
+spring.data.mongodb.auto-index-creation: true
+spring.mongodb.embedded.version: 3.4.5
+logging.level.org.springframework.data.mongodb.core.MongoTemplate: trace
+logging.file.name: logs/test/test.log
+server.error.include-message: always
+spring.profiles.active: default,enableMethodLogging
+
+test-objects:
+  new-admin:
+    email: admin-user@test-domain.com       # required
+    role: ADMIN                             # required
+    username: test-admin                    # required
+    avatar: TA                              # required
+
+  new-manager:
+    email: &manager-email manager-user@test-domain.com
+    role: MANAGER
+    username: test-manager
+    avatar: TM
+
+  new-player:
+    email: player-user@test-domain.com
+    role: PLAYER
+    username: test-player
+    avatar: TP
+
+  instance:
+    type: test Type                         # required
+    name: test instance                     # required
+    active: true                            # required
+    createdBy:                              # required
+      userId:                               # required
+        domain: *domain                     # required
+        email: *manager-email               # required
+      location:                             # not required
+        lat: 0
+        lng: 0
+        
+activity.like: likeTo
+activity.like.userId: userId
+user.property.domain: domain
+user.property.email: email
+like.match: match

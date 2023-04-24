@@ -1,0 +1,18 @@
+spring.application.name: &domain 2022b.Yaeli.Bar.Gimelshtei
+activity.like: likeTo
+activity.like.userId: userId
+user.property.domain: domain
+user.property.email: email
+like.match: match
+server.port: 8085
+
+logging.level.org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: trace
+logging.level.org.springframework.data.mongodb.core.MongoTemplate: DEBUG
+logging.level.iob.log.LogMethodAspect: trace
+server.error.include-message: always
+
+spring.profiles.active: default,enableMethodLogging
+   
+spring.data.mongodb:  
+      uri: mongodb+srv://Duet:Duet2000@duetcluster.keglv.mongodb.net/duetDB?retryWrites=true&w=majority
+      auto-index-creation: true
